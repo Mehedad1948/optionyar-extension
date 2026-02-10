@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "OptionYar | آپشن‌یار",
+  "short_name": "OptionYar",
+  "version": "1.0.0",
+  "description": "دستیار هوشمند برای شکار فرصت‌های سود نامتقارن (Asymmetric Payoffs) و استراتژی‌های ضدشکننده (Antifragile) در بازار اختیار معامله.",
+
+ "icons": {
+    "16": "logo192.png",
+    "48": "logo192.png",
+    "128": "logo192.png"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "OptionYar Assistant",
+    "default_icon": "icon-34.png"
+  },
+
+  "background": {
+    "service_worker": "background.bundle.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.bundle.js"],
+      "css": ["content.styles.css"]
+    }
+  ],
+
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs",
+    "storage"
+  ],
+
+  "host_permissions": [
+    "http://localhost:3000/*",
+    "https://options-market-next-2d8c.vercel.app/*"
+  ],
+  
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content.styles.css", 
+        "icon-128.png", 
+        "icon-34.png"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

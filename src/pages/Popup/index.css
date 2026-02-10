@@ -1,0 +1,60 @@
+/* --- START FILE: index.css --- */
+
+/* --- FONT DEFINITIONS --- */
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('../../assets/fonts/Vazirmatn-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('../../assets/fonts/Vazirmatn-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('../../assets/fonts/Vazirmatn-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('../../assets/fonts/Vazirmatn-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* --- GLOBAL OVERRIDES --- */
+
+/* 1. Force the font on Body */
+body {
+  margin: 0;
+  padding: 0;
+  width: 360px;
+  height: 260px;
+  background-color: #f9fafb;
+  overflow-x: hidden;
+  
+  /* Apply Vazirmatn */
+  font-family: 'Vazirmatn', sans-serif !important; 
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. Force the font on Tailwind's utility class just in case config fails */
+
+/* 3. Force buttons and inputs (browsers sometimes reset these) */
+button, input, textarea, select {
+  font-family: 'Vazirmatn', sans-serif !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+/* --- END FILE: index.css --- */

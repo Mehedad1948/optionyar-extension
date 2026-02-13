@@ -10,6 +10,7 @@ import React, { useEffect, useState } from 'react';
 import { APP_URL, fetchWithAuth } from '../../lib/api';
 import { getDaysLeft } from '../../lib/helpers';
 import { SignalList } from './components/SignalList';
+import HeroImage from '../../assets/img/hero-2.png'; // Imported the swan image
 
 import Logo from './components/Logo';
 
@@ -41,39 +42,65 @@ const AppContent = () => {
   if (loading) {
     return (
       <div className="w-[360px] h-[550px] flex items-center justify-center bg-gray-50 font-sans">
-        <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
+        <Logo className="w-36 h-36 text-amber-950 animate-pulse" />
       </div>
     );
   }
 
   if (!isAuthenticated) {
     return (
-      <div className="w-[360px] h-[550px] flex flex-col items-center justify-center bg-white p-2 text-center space-y-6 font-sans">
-        <div className="w-16 h-16 bg-indigo-50 rounded-full flex items-center justify-center mb-2">
-          <Lock className="w-8 h-8 text-indigo-600" />
+      // Added 'relative' and 'overflow-hidden' for the bottom-right image positioning
+      <div className="w-[360px] h-[550px] flex flex-col items-center justify-center bg-white p-2 text-center space-y-6 font-sans relative overflow-hidden">
+        <div className='flex flex-col gap-2'>
+          <div className="w-16 h-16 bg-amber-50 rounded-full flex items-center justify-center ">
+            <Logo className="text-black w-10" />
+          </div>
+          <span className="text-xl  font-black tracking-tight text-gray-900 dark:text-white">
+            آپشن‌<span className="text-amber-600">یار</span>
+          </span>
         </div>
-        <div>
+        <div dir='rtl' className="z-10 relative">
           <h2 className="text-xl font-bold text-gray-900 mb-2">نیاز به ورود</h2>
           <p className="text-sm text-gray-500 leading-relaxed">
             برای مشاهده سیگنال‌ها وارد حساب شوید.
           </p>
         </div>
+
+        {/* Updated Button: Amber color + Logo added */}
         <a
           href={`${APP_URL}/login`}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-xl transition-colors"
+          className="w-4/5 flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-medium py-3 px-4 rounded-xl transition-colors z-10 relative shadow-md"
         >
+          {/* Added Logo to button */}
           <span>ورود به وب‌سایت</span>
           <ExternalLink className="w-4 h-4" />
         </a>
+
         <button
           onClick={loadData}
-          className="text-xs text-gray-400 hover:text-indigo-600 flex items-center gap-1"
+          className="text-xs text-gray-400 hover:text-amber-600 flex items-center gap-1 z-10"
         >
           <RefreshCcw className="w-3 h-3" />
           <span>بررسی مجدد</span>
         </button>
+
+        {/* Privacy Policy Link (Best place for validator) */}
+        <a
+          href={`${APP_URL}/policy`}
+          target="_blank"
+          className="text-[10px] text-gray-300 hover:text-gray-500 absolute bottom-2 left-3 z-20"
+        >
+          قوانین و حریم خصوصی
+        </a>
+
+        {/* Swan Image: Bottom Right */}
+        <img
+          src={HeroImage}
+          alt="Swan"
+          className="absolute -bottom-5 -right-5 w-40 opacity-90 pointer-events-none"
+        />
       </div>
     );
   }
@@ -88,7 +115,7 @@ const AppContent = () => {
       {/* Header */}
       <header className="bg-white px-5 py-3 flex items-center justify-between border-b border-gray-100 sticky top-0 z-20 shadow-sm">
         <div className="flex items-center gap-2.5">
-          <Logo />
+          <Logo className={'text-black dark:text-white w-6 '} />
           <h1 className="font-bold text-lg text-gray-800 tracking-tight font-sans">
             آپشن یار
           </h1>

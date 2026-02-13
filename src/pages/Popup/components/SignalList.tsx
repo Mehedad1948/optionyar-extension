@@ -31,9 +31,10 @@ export const SignalList = () => {
       setError(null);
       const data = await fetchWithAuth('/api/signals/latest');
 
+      
 
-      if (Array.isArray(data)) {
-        setSignals(data);
+      if (Array.isArray(data?.data)) {
+        setSignals(data.data);
       } else {
         throw new Error("Invalid data format");
       }

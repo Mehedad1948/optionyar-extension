@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-const Logo = () => (
+const Logo = ({ className }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 234.39 246.05"
-    className={`fill-current text-black dark:text-white w-6 `}
+    className={`${className} fill-current  `}
   >
     <g id="Layer_1-2" data-name="Layer 1">
       <g>
@@ -15,4 +15,4 @@ const Logo = () => (
   </svg>
 );
 
-export default Logo
+export default Logo;

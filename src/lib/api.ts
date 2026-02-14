@@ -1,21 +1,21 @@
 // lib/api.ts
 
-export const APP_URL = "https://options-market-next-2d8c.vercel.app"; // Your actual URL
+export const APP_URL = 'https://opyar.ir'; // Your actual URL
 
 export const fetchWithAuth = async (endpoint: string) => {
   const url = `${APP_URL}${endpoint}`;
 
   const res = await fetch(url, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     // 👇 THIS IS THE MOST IMPORTANT PART
-    credentials: "include", 
+    credentials: 'include',
   });
 
   if (res.status === 401) {
-    throw new Error("UNAUTHORIZED");
+    throw new Error('UNAUTHORIZED');
   }
 
   if (!res.ok) {

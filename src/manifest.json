@@ -38,7 +38,8 @@
 
   "host_permissions": [
     "http://localhost:3000/*",
-    "https://options-market-next-2d8c.vercel.app/*"
+    "https://options-market-next-2d8c.vercel.app/*",
+    "https://opyar.ir/*"
   ],
   
   "web_accessible_resources": [

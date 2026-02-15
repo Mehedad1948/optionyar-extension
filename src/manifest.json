@@ -17,10 +17,6 @@
   "permissions": [
     "storage"
   ],
-  "host_permissions": [
-    "https://opyar.ir/*",
-    "https://optnyar.ir/*"
-  ],
   "web_accessible_resources": [
     {
       "resources": [

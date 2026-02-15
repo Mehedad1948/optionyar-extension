@@ -35,13 +35,13 @@ if (fileSystem.existsSync(secretsPath)) {
 
 var options = {
   mode: process.env.NODE_ENV || 'development',
+  // --- MODIFIED: Removed 'background' and 'contentScript' entries ---
   entry: {
     popup: path.join(__dirname, 'src', 'pages', 'Popup', 'index.jsx'),
-    background: path.join(__dirname, 'src', 'pages', 'Background', 'index.js'),
-    contentScript: path.join(__dirname, 'src', 'pages', 'Content', 'index.js'),
   },
   chromeExtensionBoilerplate: {
-    notHotReload: ['background', 'contentScript'],
+    // --- MODIFIED: Empty array since we removed those scripts ---
+    notHotReload: [],
   },
   output: {
     filename: '[name].bundle.js',
@@ -120,11 +120,7 @@ var options = {
             );
           },
         },
-        {
-          from: 'src/pages/Content/content.styles.css',
-          to: path.join(__dirname, 'build'),
-          force: true,
-        },
+        // --- MODIFIED: Removed 'content.styles.css' copy block ---
         {
           from: 'src/assets/img/logo192.png',
           to: path.join(__dirname, 'build'),
